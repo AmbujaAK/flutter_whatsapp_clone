@@ -1,5 +1,6 @@
 // import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_whatsapp_clone/pages/chat_screen.dart';
 
 class HomePage extends StatefulWidget {
   final List<String> cameras;
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage>
         controller: _tabController,
         children: [
           Container(),
-          Container(),
+          ChatScreen(),
           Container(),
           Container(),
         ],
