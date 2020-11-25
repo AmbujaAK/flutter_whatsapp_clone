@@ -24,6 +24,7 @@ class _StatusScreenState extends State<StatusScreen> {
                     contactName: item.name,
                     time: item.time,
                     avatarUrl: item.avatarUrl,
+                    statusPercentage: item.percent,
                   ),
                 )
                 .toList(),
@@ -36,6 +37,7 @@ class _StatusScreenState extends State<StatusScreen> {
                     contactName: item.name,
                     time: item.time,
                     avatarUrl: item.avatarUrl,
+                    statusPercentage: item.percent,
                   ),
                 )
                 .toList(),

@@ -16,6 +16,7 @@ class _CallScreenState extends State<CallScreen> {
           Divider(height: 10.0),
           ListTile(
             leading: CircleAvatar(
+              radius: 28.0,
               foregroundColor: Theme.of(context).primaryColor,
               backgroundColor: Colors.grey,
               backgroundImage: NetworkImage(

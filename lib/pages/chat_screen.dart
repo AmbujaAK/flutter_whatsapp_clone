@@ -18,6 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           ListTile(
             leading: CircleAvatar(
+              radius: 28.0,
               foregroundColor: Theme.of(context).primaryColor,
               backgroundColor: Colors.grey,
               backgroundImage: NetworkImage(dummyData[i].avatarUrl),
