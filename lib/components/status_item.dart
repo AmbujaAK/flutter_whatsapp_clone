@@ -24,22 +24,20 @@ class StatusItem extends StatelessWidget {
           radius: 28.0,
           foregroundColor: Theme.of(context).primaryColor,
           backgroundColor: Colors.grey,
-          backgroundImage: NetworkImage(
-            'https://pbs.twimg.com/profile_images/1004682548297863168/AS4ZiBRe_400x400.jpg',
-          ),
+          backgroundImage: NetworkImage(avatarUrl),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'My Status',
+              contactName,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
-              'Tap to add status update',
+              time,
               style: TextStyle(
                 color: Colors.grey,
               ),
