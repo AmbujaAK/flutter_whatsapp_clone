@@ -1,8 +1,8 @@
-import 'package:camera/camera.dart';
+// import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  final List<CameraDescription> cameras;
+  final List<String> cameras;
   HomePage({this.cameras});
 
   @override
