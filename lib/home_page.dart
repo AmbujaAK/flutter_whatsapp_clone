@@ -1,8 +1,9 @@
 // import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_whatsapp_clone/models/call_model.dart';
 import 'package:flutter_whatsapp_clone/pages/call_screen.dart';
 import 'package:flutter_whatsapp_clone/pages/chat_screen.dart';
+import 'package:flutter_whatsapp_clone/pages/status_screen.dart';
+import 'package:flutter_whatsapp_clone/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   final List<String> cameras;
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
+    _tabController = TabController(vsync: this, initialIndex: 2, length: 4);
     _tabController.addListener(() {
       if (_tabController.index == 1) {
         showFab = true;
@@ -28,21 +29,22 @@ class _HomePageState extends State<HomePage>
         showFab = false;
       }
     });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WhatsApp'),
+        title: Text(Constants.kHomeTitle),
         elevation: 0.7,
         bottom: TabBar(
           controller: _tabController,
           tabs: [
             Tab(icon: Icon(Icons.camera_alt)),
-            Tab(text: "CHATS"),
-            Tab(text: "STATUS"),
-            Tab(text: "CALLS"),
+            Tab(text: Constants.kTabTitleChat),
+            Tab(text: Constants.kTabTitleStatus),
+            Tab(text: Constants.kTabTitleCalls),
           ],
         ),
         actions: [
@@ -56,7 +58,7 @@ class _HomePageState extends State<HomePage>
         children: [
           Container(),
           ChatScreen(),
-          Container(),
+          StatusScreen(),
           CallScreen(),
         ],
       ),
