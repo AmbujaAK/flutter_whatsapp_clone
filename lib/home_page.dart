@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_whatsapp_clone/pages/call_screen.dart';
 import 'package:flutter_whatsapp_clone/pages/camera_screen.dart';
 import 'package:flutter_whatsapp_clone/pages/chat_screen.dart';
+import 'package:flutter_whatsapp_clone/pages/setting_screen.dart';
 import 'package:flutter_whatsapp_clone/pages/status_screen.dart';
 import 'package:flutter_whatsapp_clone/utils/constants.dart';
 
@@ -33,6 +34,17 @@ class _HomePageState extends State<HomePage>
     setState(() {});
   }
 
+  void handleClick(String value, BuildContext context) {
+    switch (value) {
+      case 'Logout':
+        MaterialPageRoute(builder: (context) => SettingScreen());
+        break;
+      case 'Settings':
+        Navigator.of(context).pushNamed('/settings');
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,9 +61,31 @@ class _HomePageState extends State<HomePage>
           ],
         ),
         actions: [
-          Icon(Icons.search),
-          Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
-          Icon(Icons.more_vert),
+          // Icon(Icons.search),
+          // Padding(padding: EdgeInsets.symmetric(horizontal: 5.0)),
+          // IconButton(
+          //   icon: Icon(Icons.more_vert),
+          //   onPressed: () {},
+          // ),
+          PopupMenuButton<String>(
+            onSelected: (value) => handleClick(value, context),
+            itemBuilder: (context) {
+              return {
+                'New Group',
+                'New Broadcast',
+                'WhatsApp Web',
+                'Starred messages',
+                'Payments',
+                'Logout',
+                'Settings'
+              }.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
+            },
+          ),
         ],
       ),
       body: TabBarView(

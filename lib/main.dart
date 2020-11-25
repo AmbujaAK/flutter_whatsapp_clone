@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:camera/camera.dart';
 import 'package:flutter_whatsapp_clone/home_page.dart';
+import 'package:flutter_whatsapp_clone/pages/setting_screen.dart';
 import './utils/constants.dart';
 
 // List<CameraDescription> cameras;
@@ -22,7 +23,10 @@ class MyApp extends StatelessWidget {
         accentColor: Constants.kAccentColor,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(cameras: cameras),
+      routes: {
+        '/': (context) => HomePage(cameras: cameras),
+        '/settings': (context) => SettingScreen(colorState: false),
+      },
     );
   }
 }
