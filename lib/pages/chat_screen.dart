@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_whatsapp_clone/pages/chat_box_screen.dart';
 import '../models/chat_model.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
+}
+
+_loadChatBox(BuildContext context) {
+  Navigator.of(context).push(
+    MaterialPageRoute(builder: (context) => ChatBoxScreen()),
+  );
 }
 
 class _ChatScreenState extends State<ChatScreen> {
@@ -23,21 +30,27 @@ class _ChatScreenState extends State<ChatScreen> {
               backgroundColor: Colors.grey,
               backgroundImage: NetworkImage(dummyData[i].avatarUrl),
             ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  dummyData[i].name,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  dummyData[i].time,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14.0,
+            title: GestureDetector(
+              onTap: () {
+                print('${dummyData[i].name} clicked');
+                _loadChatBox(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    dummyData[i].name,
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ),
-              ],
+                  Text(
+                    dummyData[i].time,
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
             subtitle: Container(
               padding: EdgeInsets.only(top: 5.0),

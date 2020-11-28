@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_whatsapp_clone/pages/chat_screen.dart';
 
 class HomePageDesktop extends StatefulWidget {
   @override
@@ -16,7 +17,33 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
             child: Scaffold(
               appBar: AppBar(elevation: 0.8),
               body: Container(
-                color: Colors.redAccent,
+                color: Colors.white10,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.search, color: Colors.grey),
+                            onPressed: () {
+                              showSearch(context: context, delegate: null);
+                            },
+                          ),
+                          Expanded(child: TextField()),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ChatScreen(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
