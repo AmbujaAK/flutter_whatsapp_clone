@@ -1,4 +1,5 @@
 // import 'package:camera/camera.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_whatsapp_clone/pages/call_screen.dart';
 import 'package:flutter_whatsapp_clone/pages/camera_screen.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_whatsapp_clone/pages/status_screen.dart';
 import 'package:flutter_whatsapp_clone/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
-  final List<String> cameras;
+  final List<CameraDescription> cameras;
   HomePage({this.cameras});
 
   @override
@@ -91,7 +92,7 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: _tabController,
         children: [
-          CameraScreen(),
+          CameraScreen(widget.cameras),
           ChatScreen(),
           StatusScreen(),
           CallScreen(),

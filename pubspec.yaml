@@ -14,10 +14,10 @@ dependencies:
 
   cupertino_icons: ^1.0.1
   percent_indicator: ^2.1.7+2
-  # shared_preferences: ^0.5.12+4
+  shared_preferences: ^0.5.12+4
   bloc: ^6.1.0
   flutter_bloc: ^6.1.1
-  # camera: ^0.5.8+11
+  camera: ^0.5.8+17
 
 dev_dependencies:
   flutter_test:

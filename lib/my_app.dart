@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_whatsapp_clone/bloc/settings_bloc.dart';
@@ -9,9 +10,10 @@ import 'package:flutter_whatsapp_clone/utils/my_app_settings.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-List<String> cameras;
-
 class MyApp extends StatefulWidget {
+  final List<CameraDescription> cameras;
+  MyApp({this.cameras});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -23,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     } else if (Platform.isWindows) {
       return HomePageDesktop();
     } else {
-      return HomePage();
+      return HomePage(cameras: widget.cameras);
     }
   }
 
